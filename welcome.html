@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome</title>
+    </head>
+    <body>
+        <h1>Welcome <span id="fname"></span></h1>
+        <h4>Your registration with this <span id="mail"></span> was successful</h4>
+
+
+
+
+        <script>
+
+            window.addEventListener('load', () => {
+
+                let firstname = localStorage.getItem('FIRSTNAME');
+                let mail = localStorage.getItem('EMAIL');
+
+                document.getElementById('fname').innerHTML = firstname;
+                document.getElementById('mail').innerHTML = mail;
+
+
+
+
+
+            })
+
+
+
+        </script>
+    </body>
+</html>

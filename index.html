@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript Switch Statement</title>
+    </head>
+    <body>
+
+         <form action="welcome.html" name="myform" method="POST" onsubmit="return checkRegister()">
+            <div>
+              <label>Firstname</label><br>
+              <input type="text" name="fname" id="fname">
+            </div>
+            <div>
+                <label>Lastname</label><br>
+                <input type="text" name="lname" id="lname">
+            </div>
+            <div>
+                <label>Email</label><br>
+                <input type="email" name="mail" id="mail">
+            </div>
+            <div>
+                <label>Password</label><br>
+                <input type="password" id="pass">
+            </div>
+            <div>
+                <label>Phone</label><br>
+                <input type="number" name="phone" id="phone">
+            </div>
+
+            <div>
+                <label>Gender</label><br>
+                <input type="radio" name="gender" value="male" id="male"> male
+                <input type="radio" name="gender" value="female" id="female"> female
+            </div>
+            <div>
+                <label>Skills</label><br>
+                <input type="checkbox" id="frontend" name="frontend" value="frontend"> Frontend
+                <input type="checkbox" id="backend" name="backend" value="backend"> Backend
+                <input type="checkbox" id="fullstack" name="fullstack" value="fullstack"> Fullstack                
+            </div>
+
+            <div>
+                <select id="selection">
+                    <option value="select state">Select State</option>
+                    <option value="abia">Abia</option>
+                    <option value="imo">Imo</option>
+                    <option value="enugu">Enugu</option>
+                    <option value="rivers">Rivers</option>
+                </select>
+            </div>
+           
+            <button type="submit">Register</button>
+
+         </form>
+
+
+
+        <script>
+
+        //   let gender = ['male','female']
+
+            function checkRegister(){
+                let firstname = document.getElementById('fname').value;
+                let lastname = document.getElementById('lname').value;
+                let email = document.getElementById('mail').value;
+                let password = document.getElementById('pass').value; 
+                let phone = document.getElementById('phone').value;
+                let valid = false;
+                let gend = document.myform.gender;
+                   for(i = 0; i < gend.length; i++){
+                        if(gend[i].checked){
+                            valid = true;
+                            break;
+                        }
+                   }
+                let frontend = document.getElementById('frontend').checked;
+                let backend = document.getElementById('backend').checked;
+                let fullstack = document.getElementById('fullstack').checked;
+                let sel = document.getElementById('selection').value;
+
+
+                   if(firstname.trim() == ""){
+                       alert('please fill in firstname');
+                       return false;
+                   }else if(lastname.trim() == ""){
+                       alert('please fill in lastname');
+                       return false;
+                   }else if(email.trim() == ""){
+                       alert('please fill in email');
+                       return false;
+                   }else if(password.length > 8 || password.length < 8){
+                        alert('invalid password, password length should be 8');
+                        return false;    
+                    }else if(phone.trim() == ""){
+                       alert('please fill in phone number');
+                       return false;
+                   }else if(!valid){
+                       alert('please select gender');
+                       return false;     
+                    }else if(frontend == "" && backend == "" && fullstack == ""){
+                        alert('please select atleast one skill');
+                        return false;
+                    }else if(sel === 'select state'){
+                         alert('please select state');
+                         return false;   
+                    }else{
+                       alert('registration successful');
+                       localStorage.setItem('FIRSTNAME', firstname);
+                       localStorage.setItem('EMAIL', email);
+                       return true;
+                   }
+            }
+         
+            // let color = 'blue';
+
+            // switch(color){
+            //     case 'red':
+            //     document.write('color is red');
+            //     break;
+            //     case 'blue':
+            //     document.write('color is blue');
+            //     break;
+            //     case 'green':
+            //     document.write('color is green');
+            //     break;
+            //     default:
+            //     document.write('color does not exist');
+            // }
+
+
+            // if(color == 'red'){
+            //     document.write('color is red');
+            // }else if(color == 'blue'){
+            //     document.write('color is blue')
+            // }else if(color == 'green'){
+            //     document.write('color is green');
+            // }else{
+            //     document.write('color does not exist');
+            // }
+
+                
+
+
+          
+
+        </script>
+    </body>
+</html>
